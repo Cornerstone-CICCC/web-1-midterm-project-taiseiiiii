@@ -1,0 +1,233 @@
+/* Tailwind v4 Import */
+@import "tailwindcss";
+
+/* =====================================
+   CSS Variables (Dark Mode)
+   ===================================== */
+:root {
+  --bg: #070707;
+  --panel: #0f0f10;
+  --muted: #8b98a8;
+  --neon-cyan: #00f6ff;
+  --neon-pink: #ff6cfb;
+  --glass: rgba(255, 255, 255, 0.03);
+  --accent-glow: 0 6px 30px rgba(0, 246, 255, 0.06),
+    0 2px 6px rgba(255, 108, 251, 0.03);
+  --text: #e6eef6;
+}
+
+/* =====================================
+   CSS Variables (Light Mode)
+   ===================================== */
+[data-theme="light"] {
+  --bg: #f8f9fa;
+  --panel: #ffffff;
+  --muted: #6c757d;
+  --neon-cyan: #0099ff;
+  --neon-pink: #e91e63;
+  --text: #212529;
+  --accent-glow: 0 6px 30px rgba(0, 153, 255, 0.1),
+    0 2px 6px rgba(233, 30, 99, 0.05);
+}
+
+/* =====================================
+   Base Styles
+   ===================================== */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* =====================================
+   Smooth Scrolling
+   ===================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* =====================================
+   Ambient Background Effects
+   ===================================== */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 10% 10%,
+    rgba(0, 246, 255, 0.02),
+    transparent 8%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="light"] body::before {
+  background: radial-gradient(
+    circle at 10% 10%,
+    rgba(0, 153, 255, 0.03),
+    transparent 8%
+  );
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(0, 246, 255, 0.02),
+    transparent,
+    rgba(255, 108, 251, 0.02),
+    transparent
+  );
+  animation: gradientShift 15s ease infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+}
+
+/* =====================================
+   Custom Scrollbar
+   ===================================== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-cyan);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-pink);
+}
+
+/* =====================================
+   Selection Color
+   ===================================== */
+::selection {
+  background: var(--neon-cyan);
+  color: var(--bg);
+}
+
+::-moz-selection {
+  background: var(--neon-cyan);
+  color: var(--bg);
+}
+
+/* =====================================
+   Utility Classes
+   ===================================== */
+.text-gradient {
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: perspective(1000px) rotateX(var(--rotate-x, 0deg))
+    rotateY(var(--rotate-y, 0deg)) translateY(-8px);
+}
+
+/* =====================================
+   Reveal Animation
+   ===================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================================
+   Pixel Art Rendering
+   ===================================== */
+canvas {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* =====================================
+   Container Positioning
+   ===================================== */
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+/* =====================================
+   React PDF
+   ===================================== */
+/* React PDF TextLayer styles */
+.react-pdf__Page__textContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  z-index: 2;
+}
+
+.react-pdf__Page__textContent span {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+}
+
+/* React PDF AnnotationLayer styles */
+.react-pdf__Page__annotations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
