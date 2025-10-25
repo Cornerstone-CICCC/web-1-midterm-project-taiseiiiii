@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/5UPNkNY_)
 
-## Getting Started
+# Midterm Project - Personal Portfolio Website
 
-First, run the development server:
+## Goal
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The goal of this project is to create a personal portfolio website that will be used to showcase your work and skills to potential employers. This website will be a living document that you can update throughout the program and beyond.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Requirements
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Before you start building your portfolio, create a wireframe of your website. Afterwards, create a mockup in Figma based on your wireframe.
+- Your website can have the following sections/pages:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+  - Home
+  - About
+  - Projects
+  - Skills (Soft and Hard Skills)
+  - Work Experiences
+  - Contact
 
-## Learn More
+- You can choose to have a separate page for each section or you can have a single page with multiple sections.
+- You can use JavaScript if you want to. You are free to use different libraries or frameworks.
 
-To learn more about Next.js, take a look at the following resources:
+## Example Workflow
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Clone this repository to your local machine.
+- Create a new branch with a descriptive name of your first implementation. You can also create different branches per page.
+- Commit often and write descriptive commit messages.
+- Once you are done with your first implementation, push your branch to GitHub and create a pull request.
+- Once your pull request is approved, merge your branch into the main branch.
+- Create a new branch for your second implementation or page and repeat the process.
+- Do not work on the MAIN branch!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Content
 
-## Deploy on Vercel
+- Add a short bio about yourself.
+- Add some images to your website. It can be a picture of yourself or any other image that you like. Screenshots of your projects are also a good idea.
+- If you don't have a project yet, you can include this portfolio as your first one.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tools
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Visual Studio Code
+- Whimsical (for wireframe)
+- Figma (for mockup design)
+
+## Resources
+
+- Portfolio References: [Developer Portfolios](https://github.com/emmabostian/developer-portfolios)
+- Free Images: [Unsplash](https://unsplash.com/)
+- Icons: [Font Awesome](https://fontawesome.com/)
+- Colors: [Coolors](https://coolors.co/)
+- Fonts: [Google Fonts](https://fonts.google.com/)
+
+## Submission
+
+- Make sure to push your latest code to GitHub. For the presentation day, each student is given 5-10 minutes to present their project.
