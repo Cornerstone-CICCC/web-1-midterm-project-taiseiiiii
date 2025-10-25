@@ -46,7 +46,7 @@ const ANIMATION_CONFIG = {
 
   // Character
   CHAR_START_X: 100,
-  TRAVEL_DISTANCE: 493.75,
+  TRAVEL_DISTANCE: 480,
 
   // Text
   BASELINE_Y: 300,
@@ -57,17 +57,17 @@ const ANIMATION_CONFIG = {
   DOT_SIZE: 8,
 
   // Timing (frames)
-  SPRITE_FRAME_DURATION: 8,
-  FALL_DURATION: 30,
-  FALL_WAIT: 35,
-  SCATTER_DURATION: 60,
+  SPRITE_FRAME_DURATION: 6,
+  FALL_DURATION: 10,
+  FALL_WAIT: 6,
+  SCATTER_DURATION: 5,
   GATHER_DURATION: 110,
   HELD_DURATION: 30,
   FLICKER_START: 10,
   FLICKER_END: 20,
   EXPLODE_DURATION: 90,
   FADEOUT_START: 80,
-  FADEOUT_DURATION: 1200, // ms
+  FADEOUT_DURATION: 600,
 
   // Particles
   PARTICLE_COUNT: 60,
@@ -322,7 +322,7 @@ export default function LoadingAnimation() {
       (Math.floor(frame / ANIMATION_CONFIG.SPRITE_FRAME_DURATION) %
         4) as SpriteFrame
     );
-    characterXRef.current += 1;
+    characterXRef.current += 2.2;
 
     if (characterXRef.current > ANIMATION_CONFIG.TRAVEL_DISTANCE) {
       setAnimationState("falling");
@@ -609,10 +609,10 @@ export default function LoadingAnimation() {
 
   const characterTransform =
     animationState === "falling"
-      ? "scale(3) translateY(-56px) rotate(45deg)"
+      ? "scale(3) translateY(-32px) rotate(45deg)"
       : ["spilled", "held", "exploding", "fadeout"].includes(animationState)
-      ? "scale(3) translateY(-20px) rotate(0deg)"
-      : "scale(3) translateY(-56px)";
+      ? "scale(3) translateY(-10px) rotate(0deg)"
+      : "scale(3) translateY(-42px)";
 
   return (
     <div
