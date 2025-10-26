@@ -4,12 +4,10 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { projects } from "@/lib/data";
+import { useApp } from "@/lib/contexts/AppContext";
 
-interface WorksProps {
-  lang: "en" | "ja";
-}
-
-export default function Works({ lang }: WorksProps) {
+export default function Works() {
+  const { lang } = useApp();
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 

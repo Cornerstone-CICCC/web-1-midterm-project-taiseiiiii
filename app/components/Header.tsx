@@ -3,21 +3,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigation } from "@/lib/data";
-import type { Language, Theme } from "@/lib/hooks";
+import { useApp } from "@/lib/contexts/AppContext";
 
-interface HeaderProps {
-  lang: Language;
-  theme: Theme;
-  onLanguageToggle: () => void;
-  onThemeToggle: () => void;
-}
-
-export default function Header({
-  lang,
-  theme,
-  onLanguageToggle,
-  onThemeToggle,
-}: HeaderProps) {
+export default function Header() {
+  const { lang, theme, toggleLanguage, toggleTheme } = useApp();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -88,7 +77,7 @@ export default function Header({
       <div className="flex items-center gap-3">
         {/* Language Toggle */}
         <motion.button
-          onClick={onLanguageToggle}
+          onClick={toggleLanguage}
           className="
             w-9 h-9 rounded-lg
             border border-white/10 bg-white/5
@@ -108,7 +97,7 @@ export default function Header({
 
         {/* Theme Toggle */}
         <motion.button
-          onClick={onThemeToggle}
+          onClick={toggleTheme}
           className="
             w-9 h-9 rounded-lg
             border border-white/10 bg-white/5

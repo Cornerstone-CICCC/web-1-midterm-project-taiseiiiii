@@ -3,12 +3,10 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { personalInfo } from "@/lib/data";
+import { useApp } from "@/lib/contexts/AppContext";
 
-interface ContactProps {
-  lang: "en" | "ja";
-}
-
-export default function Contact({ lang }: ContactProps) {
+export default function Contact() {
+  const { lang } = useApp();
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 

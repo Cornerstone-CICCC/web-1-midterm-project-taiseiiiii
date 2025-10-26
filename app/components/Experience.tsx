@@ -3,12 +3,10 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { experience } from "@/lib/data";
+import { useApp } from "@/lib/contexts/AppContext";
 
-interface ExperienceProps {
-  lang: "en" | "ja";
-}
-
-export default function Experience({ lang }: ExperienceProps) {
+export default function Experience() {
+  const { lang } = useApp();
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 

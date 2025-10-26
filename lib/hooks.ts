@@ -2,53 +2,6 @@
 
 import { useState, useEffect, RefObject } from "react";
 
-// Language hook
-export type Language = "en" | "ja";
-
-export function useLanguage() {
-  const [lang, setLang] = useState<Language>("en");
-
-  const toggleLanguage = () => {
-    setLang((prev) => (prev === "en" ? "ja" : "en"));
-  };
-
-  return { lang, toggleLanguage };
-}
-
-// Theme hook
-export type Theme = "dark" | "light";
-
-export function useTheme() {
-  const [theme, setTheme] = useState<Theme>("dark");
-
-  useEffect(() => {
-    // Check for saved theme preference or default to 'dark'
-    const savedTheme = localStorage.getItem("theme") as Theme | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.setAttribute("data-theme", savedTheme);
-      if (savedTheme === "light") {
-        document.documentElement.classList.add("light");
-      }
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme: Theme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
-
-    if (newTheme === "light") {
-      document.documentElement.classList.add("light");
-    } else {
-      document.documentElement.classList.remove("light");
-    }
-  };
-
-  return { theme, toggleTheme };
-}
-
 // Intersection Observer hook for reveal animations
 export function useIntersectionObserver(
   ref: RefObject<Element>,
@@ -134,7 +87,7 @@ export function useCounter(
         clearInterval(timer);
         setIsAnimating(false);
       }
-    }, 16); // ~60fps
+    }, 16);
 
     return () => clearInterval(timer);
   };

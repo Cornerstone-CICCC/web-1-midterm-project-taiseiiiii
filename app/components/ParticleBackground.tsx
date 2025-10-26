@@ -1,5 +1,6 @@
 "use client";
 
+import { useApp } from "@/lib/contexts/AppContext";
 import { useEffect, useRef } from "react";
 
 interface Particle {
@@ -10,11 +11,8 @@ interface Particle {
   radius: number;
 }
 
-interface ParticleBackgroundProps {
-  theme: "dark" | "light";
-}
-
-export default function ParticleBackground({ theme }: ParticleBackgroundProps) {
+export default function ParticleBackground() {
+  const { theme } = useApp();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationFrameRef = useRef<number>(0);

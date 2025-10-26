@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
+import { AppProvider } from "@/lib/contexts/AppContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -62,8 +63,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        {children}
-        <Analytics />
+        <AppProvider>
+          {children}
+          <Analytics />
+        </AppProvider>
       </body>
     </html>
   );

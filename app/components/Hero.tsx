@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 import { personalInfo } from "@/lib/data";
+import { useApp } from "@/lib/contexts/AppContext";
 
 const Document = dynamic(
   () => import("react-pdf").then((mod) => mod.Document),
@@ -14,11 +15,8 @@ const Page = dynamic(() => import("react-pdf").then((mod) => mod.Page), {
   ssr: false,
 });
 
-interface HeroProps {
-  lang: "en" | "ja";
-}
-
-export default function Hero({ lang }: HeroProps) {
+export default function Hero() {
+  const { lang } = useApp();
   const [displayedTitle, setDisplayedTitle] = useState("");
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const [showResumeModal, setShowResumeModal] = useState(false);

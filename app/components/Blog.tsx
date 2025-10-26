@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
+import { useApp } from "@/lib/contexts/AppContext";
 
 interface MediumArticle {
   title: string;
@@ -12,11 +13,8 @@ interface MediumArticle {
   categories: string[];
 }
 
-interface BlogProps {
-  lang: "en" | "ja";
-}
-
-export default function Blog({ lang }: BlogProps) {
+export default function Blog() {
+  const { lang } = useApp();
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const [articles, setArticles] = useState<MediumArticle[]>([]);

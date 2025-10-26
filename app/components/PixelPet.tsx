@@ -11,6 +11,7 @@ interface PixelPetProps {
   spriteFrameHeight?: number;
   frameCount?: number;
   frameSpeed?: number;
+  isFixed?: boolean;
   position?: {
     right?: string;
     bottom?: string;
@@ -28,7 +29,7 @@ interface Particle {
 }
 
 export default function PixelPet({
-  spriteUrl = "/slime_bounce_twoframe-removebg-preview.png",
+  spriteUrl = "/slime-bounce.png",
   size = 90,
   bounceSpeed = 0.002,
   bounceHeight = 12,
@@ -36,6 +37,7 @@ export default function PixelPet({
   spriteFrameHeight = 64,
   frameCount = 2,
   frameSpeed = 500,
+  isFixed = true,
   position = { right: "20px", bottom: "20px" },
 }: PixelPetProps) {
   const [currentFrame, setCurrentFrame] = useState(0);
@@ -173,10 +175,12 @@ export default function PixelPet({
 
   return (
     <div
-      className="fixed z-[500]"
+      className={`z-[500] ${isFixed ? "fixed" : "relative"}`}
       style={{
-        right: position.right,
-        bottom: position.bottom,
+        ...(isFixed && {
+          right: position.right,
+          bottom: position.bottom,
+        }),
         width: `${size}px`,
         height: `${size}px`,
       }}
